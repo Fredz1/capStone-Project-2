@@ -1,0 +1,19 @@
+{
+  "name": "capstone2",
+  "version": "1.0.0",
+  "description": "CapStoneProject",
+  "main": "server.js",
+  "scripts": {
+    "test": "jest"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Fredz1/capStone-Project-2.git"
+  },
+  "author": "Frederick Williams",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Fredz1/capStone-Project-2/issues"
+  },
+  "homepage": "https://github.com/Fredz1/capStone-Project-2#readme"
+}
