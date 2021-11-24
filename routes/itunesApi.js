@@ -2,10 +2,12 @@ const router = require('express').Router()
 const iStoreRequest = require('../controller/itunesRequests')
 
 
-router.get(
+router.post(
   '/',
-  (req, res) => {
-    res.sendStatus(200)
+  async (req, res) => {
+    let search = await iStoreRequest('Fred')
+    console.log(search)
+    res.send(await search)
   }
 )
 

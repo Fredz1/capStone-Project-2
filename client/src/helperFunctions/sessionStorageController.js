@@ -9,4 +9,4 @@ const getFavorites = () => {
   JSON.parse(sessionStorage.getItem('favorites'))
 }
 
-module.exports = setFavorites, getFavorites
+export {setFavorites, getFavorites}
