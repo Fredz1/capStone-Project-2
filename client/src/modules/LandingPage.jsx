@@ -1,9 +1,11 @@
 import React, { useState } from 'react'
+import ItemCard from './ItemCard'
+import searchTypes from './staticContent/staticContent'
 
 const LandingPage = () => {
 
   // list of possible media search types
-  const searchTypes = ['movie', 'podcast', 'music', 'musicVideo', 'audiobook', 'shortFilm', 'tvShow', 'software', 'ebook', 'all']
+  
       /* 
         should be able to search for movie, podcast, music, musicVideo, audiobook, shortFilm, tvShow, software, ebook, all
       */
@@ -19,7 +21,6 @@ const LandingPage = () => {
     let current = searchSelection
     current[event.target.value] = event.target.checked
     setSearchSelection(current)    
-    console.log(current)
   }
 
   const handleSearchClick = async () => {
@@ -31,8 +32,8 @@ const LandingPage = () => {
         body: JSON.stringify(searchSelection)
       }
     )
-    request.json()
-    console.log(request)
+    await request.json()
+    setSearchResults(request)
   }
 
   return (
@@ -44,18 +45,20 @@ const LandingPage = () => {
             searchTypes.map(
               (el, index) => {
                 return (
-                  <>
-                    <input key={index} type='checkbox' value={el} onChange={e => handleCheckboxInput(e)} />{el}
-                  </>
+                  <div key={index}>
+                    <input type='checkbox' value={el.searchName}  onChange={e => handleCheckboxInput(e)} />{el.displayName}
+                  </div>
                 )
               }
             )
           }
         <button onClick={() => handleSearchClick()}>search</button>
       </div>
-          {/* search resulys display */}
+          {/* search results display */}
           {
-            searchResults ? 'there are results' : 'nothing to return'
+            searchResults.length === 0 ? 
+              'nothing to return' : 
+              'something here'
           }
       </div>      
       <div>
