@@ -4,14 +4,15 @@ import searchTypes from './staticContent/staticContent'
 
 const LandingPage = () => {
 
-  // list of possible media search types
-  
       /* 
+        api search Criteria kept in static folder
         should be able to search for movie, podcast, music, musicVideo, audiobook, shortFilm, tvShow, software, ebook, all
       */
+
+      // TODO: HANDLE THE "ALL" SELECTION
   
      const [searchSelection, setSearchSelection] = useState({})
-     const [searchResults, setSearchResults] = useState([]);
+     const [searchResults, setSearchResults] = useState([])
      
      /* 
        checkbox states stored in useState hook.  When user selects a box event is passed form input to function.  The input value is added to searchSelection state if is is not already.  If value is already added it is toggled based on event.target.checked bool.
@@ -32,8 +33,8 @@ const LandingPage = () => {
         body: JSON.stringify(searchSelection)
       }
     )
-    await request.json()
-    setSearchResults(request)
+    let response = await request.json()
+    setSearchResults(response)
   }
 
   return (
@@ -53,14 +54,20 @@ const LandingPage = () => {
             )
           }
         <button onClick={() => handleSearchClick()}>search</button>
+        </div>      
       </div>
           {/* search results display */}
           {
-            searchResults.length === 0 ? 
+            searchResults === undefined ? 
               'nothing to return' : 
-              'something here'
+              searchResults.map(
+                (el, index) => {
+                  return (
+                    <ItemCard key={index} data={el} />
+                  )
+                }
+              )
           }
-      </div>      
       <div>
         {/* favorites */}
         favorites

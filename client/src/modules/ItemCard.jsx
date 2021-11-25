@@ -1,10 +1,9 @@
 import React from 'react'
 
 const ItemCard = props => {
-  console.log(props)
   return (
     <div>
-
+      data here
     </div>
   )
 }

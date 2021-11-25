@@ -6,7 +6,7 @@ router.post(
   '/',
   async (req, res) => {
     let search = await iStoreRequest('Fred')
-    res.send(await search)
+    res.send(await search.results)
   }
 )
 
