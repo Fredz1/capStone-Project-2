@@ -1,12 +1,18 @@
 
 
 const setFavorites = data => {
-  sessionStorage.setItem('favorites', JSON.stringify(data))
+  return sessionStorage.setItem('favorites', JSON.stringify(data))
 
 }
 
 const getFavorites = () => {
-  JSON.parse(sessionStorage.getItem('favorites'))
+  return JSON.parse(sessionStorage.getItem('favorites'))
 }
 
-export {setFavorites, getFavorites}
+const addToStorage = element => {
+  let temp = getFavorites()
+  temp.push(element)
+  setFavorites(temp)
+}
+
+export {addToStorage, getFavorites}

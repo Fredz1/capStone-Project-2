@@ -3,3 +3,14 @@ body{
   padding: 0;
   display: block;
 }
+
+
+
+.searchCard{
+  width: 45%;
+  height: 125px;
+  border: 1px solid red;
+  background-color: cornsilk;
+  display: flex;
+  flex-direction: row;
+}
