@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import ItemCard from './ItemCard'
 import searchTypes from './staticContent/staticContent'
-import {addToStorage, getFavorites} from '../helperFunctions/sessionStorageController'
+import {addToStorage, getFavorites, removeFromStorage} from '../helperFunctions/sessionStorageController'
 
 const LandingPage = () => {
 
@@ -42,7 +42,6 @@ const LandingPage = () => {
 
   useEffect(
     () => {
-      console.log('useEffect ran')
       setFavorites(getFavorites())
     }, 
     []
@@ -50,6 +49,11 @@ const LandingPage = () => {
 
   const moveToFavorites = fav => {
     addToStorage(fav)
+    setFavorites(getFavorites())
+  }
+
+  const removeFromFavorites = fav => {
+    removeFromStorage(fav)
     setFavorites(getFavorites())
   }
 
@@ -79,7 +83,7 @@ const LandingPage = () => {
               searchResults.map(
                 (el, index) => {
                   return (
-                    <ItemCard key={index} data={el} moveToFavorites={moveToFavorites}/>
+                    <ItemCard key={index} data={el} add={true} moveToFavorites={moveToFavorites}/>
                   )
                 }
               )
@@ -93,7 +97,7 @@ const LandingPage = () => {
             favorites.map(
               (el, index) => {
                 return (
-                  <ItemCard key={index} data={el} />
+                  <ItemCard key={index} add={false} data={el} removeFromFavorites={removeFromFavorites}/>
                 )
               }
             )

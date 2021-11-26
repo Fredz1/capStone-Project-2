@@ -8,7 +8,12 @@ const ItemCard = props => {
         {props.data.artistName}
         {props.data.trackName}
       </div>
-      <button onClick={() => props.moveToFavorites(props.data)} >Add Fav</button>
+      {
+        props.add ?
+          <button onClick={() => props.moveToFavorites(props.data)} >Add Fav</button>
+          :
+          <button onClick={() => props.removeFromFavorites(props.data)} >Remove Fav</button>
+      }
     </div>
   )
 }

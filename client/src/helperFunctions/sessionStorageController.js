@@ -18,4 +18,15 @@ const addToStorage = element => {
   setFavorites(temp)
 }
 
-export {addToStorage, getFavorites}
+const removeFromStorage = element => {
+  let temp = getFavorites()
+  let indexToRemove = temp.findIndex(
+    el => {
+      return el['collectionId'] === element['collectionId']
+    }
+  )
+  temp.splice(indexToRemove, 1)
+  setFavorites(temp)
+}
+
+export {addToStorage, getFavorites, removeFromStorage}
