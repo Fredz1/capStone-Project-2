@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import ItemCard from './ItemCard'
 import searchTypes from './staticContent/staticContent'
-import {addToFavorites, getFavorites} from '../helperFunctions/sessionStorageController'
+import {addToStorage} from '../helperFunctions/sessionStorageController'
 
 const LandingPage = () => {
 
@@ -42,14 +42,13 @@ const LandingPage = () => {
 
   useEffect(
     () => {
-      setFavorites(getFavorites())
       
     }, 
-    [favorites]
+    []
   )
 
-  const addToFavorites = fav => {
-    addToFavorites(fav)
+  const moveToFavorites = fav => {
+    addToStorage(fav)
   }
 
   return (
@@ -78,22 +77,14 @@ const LandingPage = () => {
               searchResults.map(
                 (el, index) => {
                   return (
-                    <ItemCard key={index} data={el} addToFavorites={addToFavorites}/>
+                    <ItemCard key={index} data={el} moveToFavorites={moveToFavorites}/>
                   )
                 }
               )
           }
       <div>
         {/* favorites */}
-        {
-          favorites.map(
-            (el, index) => {
-              return(
-                console.log('favorite')
-              )
-            }
-          )
-        }
+        
       </div>
     </div>
   )

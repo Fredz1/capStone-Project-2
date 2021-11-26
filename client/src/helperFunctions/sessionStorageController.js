@@ -6,7 +6,10 @@ const setFavorites = data => {
 }
 
 const getFavorites = () => {
-  return JSON.parse(sessionStorage.getItem('favorites'))
+  if(JSON.parse(sessionStorage.getItem('favorites')) === null) setFavorites([])
+  
+  let temp = JSON.parse(sessionStorage.getItem('favorites'))
+  return temp
 }
 
 const addToStorage = element => {
