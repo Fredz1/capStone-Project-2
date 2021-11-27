@@ -2,9 +2,46 @@ body{
   margin: 0;
   padding: 0;
   display: block;
+  font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
 }
 
+/* 
+  Landing Page
+*/
 
+h1{
+  font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+  text-align: center;
+}
+
+.userInputPanel{
+  margin: 0 auto;
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  max-width: 50%;
+  padding: 2rem;
+}
+
+.userInputPanel > input {
+  border-radius: 10px;
+  width: 50%;
+  margin: 1.5rem auto;
+  height: 1.5em;
+  font-size: 1.5em;
+}
+
+.checkboxContainer{
+  display: flex;
+  flex-direction: row;
+  margin: 0.25rem 0.5rem;
+
+}
+
+.checkboxContainer > div{
+  display: inline-flex;
+}
 
 .searchCard{
   width: 45%;
@@ -13,4 +50,10 @@ body{
   background-color: cornsilk;
   display: flex;
   flex-direction: row;
+}
+
+button{
+  border-style: outset;
+  border-radius: 10px;
+  height: 3em;
 }

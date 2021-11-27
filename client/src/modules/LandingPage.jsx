@@ -15,6 +15,7 @@ const LandingPage = () => {
      const [searchSelection, setSearchSelection] = useState({})
      const [searchResults, setSearchResults] = useState([])
      const [favorites, setFavorites] = useState([]);
+     const [userInput, setUserInput] = useState('');
      
      /* 
        checkbox states stored in useState hook.  When user selects a box event is passed form input to function.  The input value is added to searchSelection state if is is not already.  If value is already added it is toggled based on event.target.checked bool.
@@ -32,7 +33,10 @@ const LandingPage = () => {
       {
         headers: {'Content-Type': 'application/json'},
         method: 'POST',
-        body: JSON.stringify(searchSelection)
+        body: JSON.stringify(
+          {searchSelection,
+          userInput }
+        )
       }
     )
     let response = await request.json()
@@ -59,9 +63,12 @@ const LandingPage = () => {
 
   return (
     <div>
-      <div>
-        <input type="text" placeholder='search'/>
-        <div>
+      <h1>
+        iStore Search-A-Nator
+      </h1>
+      <div className='userInputPanel'>
+        <input type="text" placeholder='search' onChange={e => setUserInput(e.target.value)}/>
+        <div className='checkboxContainer'>
           {
             searchTypes.map(
               (el, index) => {
@@ -73,8 +80,8 @@ const LandingPage = () => {
               }
             )
           }
-        <button onClick={() => handleSearchClick()}>search</button>
         </div>      
+        <button onClick={() => handleSearchClick()}>search</button>
       </div>
           {/* search results display */}
           {
