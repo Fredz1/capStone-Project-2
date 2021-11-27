@@ -83,18 +83,20 @@ const LandingPage = () => {
         </div>      
         <button onClick={() => handleSearchClick()}>search</button>
       </div>
-          {/* search results display */}
-          {
-            searchResults === undefined ? 
-              'nothing to return' : 
-              searchResults.map(
-                (el, index) => {
-                  return (
-                    <ItemCard key={index} data={el} add={true} moveToFavorites={moveToFavorites}/>
-                  )
-                }
-              )
-          }
+      <div className="searchResults">
+        {/* search results display */}
+        {
+          searchResults === undefined ? 
+            'nothing to return' : 
+            searchResults.map(
+              (el, index) => {
+                return (
+                  <ItemCard key={index} data={el} add={true} moveToFavorites={moveToFavorites}/>
+                )
+              }
+            )
+        }
+      </div>
       <div className='favorites'>
         {/* favorites */}
         {

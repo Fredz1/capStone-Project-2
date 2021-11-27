@@ -17,7 +17,7 @@ router.post(
       }
     }
 
-    let search = await iStoreRequest(filterTrue())
+    let search = await iStoreRequest(filterTrue(), req.body.userInput)
     res.send(await search.results)
   }
 )

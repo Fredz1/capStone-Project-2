@@ -5,9 +5,9 @@ const searchTypes = ['movie', 'podcast', 'music', 'musicVideo', 'audiobook', 'sh
 
 // limit?
 // media?
-const searchiStore = async (media) => {
+const searchiStore = async (media, userInput) => {
   
-  const request = await fetch(`https://itunes.apple.com/search?term=${input}&limit=5`)
+  const request = await fetch(`https://itunes.apple.com/search?term=${userInput}&limit=5`)
   const json = await request.json()
   return json
   // return await request

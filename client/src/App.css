@@ -48,8 +48,7 @@ h1{
   height: 125px;
   border: 1px solid red;
   background-color: cornsilk;
-  display: flex;
-  flex-direction: row;
+  display: grid;
 }
 
 button{
