@@ -3,6 +3,7 @@ body{
   padding: 0;
   display: block;
   font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+  background-color: #D4E9C9;
 }
 
 /* 
@@ -43,12 +44,42 @@ h1{
   display: inline-flex;
 }
 
-.searchCard{
-  width: 45%;
-  height: 125px;
+/* 
+  mainDisplay
+*/
+
+.mainDisplay{
+  display: flex;
+  flex-direction: row;
   border: 1px solid red;
+  justify-content: space-around;
+
+}
+
+.searcResults{
+  width: 45%;
+  
+}
+
+.favorites{
+  width: 45%;
+  
+}
+
+.searchCard{
+  height: 100px;
+  border-style: outset;
+  border-radius: 1em;
+  overflow: hidden;
+  padding: 0.5em;
   background-color: cornsilk;
-  display: grid;
+  display: flex;
+  justify-content: space-between;
+  flex-direction: row;
+  border: 5px;
+  background-color: #B7DBA5;
+  align-items: center;
+  margin: 0.3em;
 }
 
 button{

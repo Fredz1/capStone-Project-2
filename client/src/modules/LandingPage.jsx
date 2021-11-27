@@ -83,34 +83,36 @@ const LandingPage = () => {
         </div>      
         <button onClick={() => handleSearchClick()}>search</button>
       </div>
-      <div className="searchResults">
-        {/* search results display */}
-        {
-          searchResults === undefined ? 
-            'nothing to return' : 
-            searchResults.map(
-              (el, index) => {
-                return (
-                  <ItemCard key={index} data={el} add={true} moveToFavorites={moveToFavorites}/>
-                )
-              }
-            )
-        }
-      </div>
-      <div className='favorites'>
-        {/* favorites */}
-        {
-          favorites.length === 0 ? 
-            'nothing to show'
-            : 
-            favorites.map(
-              (el, index) => {
-                return (
-                  <ItemCard key={index} add={false} data={el} removeFromFavorites={removeFromFavorites}/>
-                )
-              }
-            )
-        }
+      <div className="mainDisplay">
+        <div className="searchResults">
+          {/* search results display */}
+          {
+            searchResults === undefined ? 
+              'nothing to return' : 
+              searchResults.map(
+                (el, index) => {
+                  return (
+                    <ItemCard key={index} data={el} add={true} moveToFavorites={moveToFavorites}/>
+                  )
+                }
+              )
+          }
+        </div>
+        <div className='favorites'>
+          {/* favorites */}
+          {
+            favorites.length === 0 ? 
+              'No Favorites'
+              : 
+              favorites.map(
+                (el, index) => {
+                  return (
+                    <ItemCard key={index} add={false} data={el} removeFromFavorites={removeFromFavorites}/>
+                  )
+                }
+              )
+          }
+        </div>
       </div>
     </div>
   )
