@@ -81,7 +81,7 @@ const LandingPage = () => {
             )
           }
         </div>      
-        <button onClick={() => handleSearchClick()}>search</button>
+        <button onClick={() => handleSearchClick()}>Search</button>
       </div>
       <div className="mainDisplay">
         <div className="searchResults">

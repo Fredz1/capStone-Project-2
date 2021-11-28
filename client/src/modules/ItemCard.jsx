@@ -5,7 +5,10 @@ const ItemCard = props => {
     <div className='searchCard'>
       <img src={props.data.artworkUrl100} alt="artwork" />
       <div>
-        {props.data.artistName}
+        {
+          props.data.kind === "book" ? "Author" :
+          props.data.kind === "song" ? "Artist" : 'creator'
+        }: {props.data.artistName}
         {props.data.trackName}
       </div>
       {
