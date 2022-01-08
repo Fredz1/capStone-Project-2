@@ -3,17 +3,20 @@ import React from 'react'
 const ItemCard = props => {
   return (
     <div className='searchCard'>
-      <img src={props.data.artworkUrl100} alt="artwork" />
+      <img src={props.data.artworkUrl100} alt="artwork" /> 
       <div>
         {
           props.data.kind === "book" ? "Author" :
-          props.data.kind === "song" ? "Artist" : 'creator'
-        }: {props.data.artistName}
+          props.data.kind === "song" ? "Artist" : 
+          props.data.king === 'feature-movie' ? 'director' 
+          :'creator'
+        }: <br />{props.data.artistName}<br />
+
         {props.data.trackName}
       </div>
       {
         props.add ?
-          <button onClick={() => props.moveToFavorites(props.data)} >Add Fav</button>
+          <button onClick={() => props.moveToFavorites(props.data)} >Add to Fav</button>
           :
           <button onClick={() => props.removeFromFavorites(props.data)} >Remove Fav</button>
       }

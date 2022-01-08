@@ -10,8 +10,6 @@ const LandingPage = () => {
         should be able to search for movie, podcast, music, musicVideo, audiobook, shortFilm, tvShow, software, ebook, all
       */
 
-      // TODO: HANDLE THE "ALL" SELECTION
-  
      const [searchSelection, setSearchSelection] = useState({})
      const [searchResults, setSearchResults] = useState([])
      const [favorites, setFavorites] = useState([]);
@@ -51,6 +49,10 @@ const LandingPage = () => {
     []
   )
 
+  /* 
+  handle favorites
+  */
+
   const moveToFavorites = fav => {
     addToStorage(fav)
     setFavorites(getFavorites())
@@ -83,12 +85,16 @@ const LandingPage = () => {
         </div>      
         <button onClick={() => handleSearchClick()}>Search</button>
       </div>
+      {
+        
+      }
       <div className="mainDisplay">
         <div className="searchResults">
           {/* search results display */}
           {
-            searchResults === undefined ? 
-              'nothing to return' : 
+            searchResults.length === 0 ? 
+              <p>Nothing on the store matches you search</p> 
+              : 
               searchResults.map(
                 (el, index) => {
                   return (

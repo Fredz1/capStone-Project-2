@@ -5,7 +5,7 @@ const searchTypes = [{
   searchName: 'podcast',
   displayName: 'Podcast'
 }, {
-  searchName: 'music',
+  searchName: 'musicTrack',
   displayName: 'Music'
 }, {
   searchName: 'musicVideo',

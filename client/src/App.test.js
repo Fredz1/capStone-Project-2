@@ -1,8 +1,9 @@
-import { render, screen } from '@testing-library/react';
-import App from './App';
+import { render, screen } from '@testing-library/react'
+import LandingPage from './modules/LandingPage'
+import ItemCard from './modules/ItemCard'
 
-test('renders learn react link', () => {
-  render(<App />);
-  const linkElement = screen.getByText(/learn react/i);
-  expect(linkElement).toBeInTheDocument();
-});
+test('renders react link', () => {
+  render(<LandingPage />)
+  const header = screen.getByText(/iStore Search-A-Nator/i)
+  expect(header).toBeInTheDocument();
+})

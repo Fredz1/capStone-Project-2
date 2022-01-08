@@ -1,11 +1,12 @@
 const router = require('express').Router()
-const e = require('express')
 const iStoreRequest = require('../controller/itunesRequests')
 
 
 router.post(
   '/',
   async (req, res) => {
+
+    // filter all false underfined or null entries out of input before request is made.
     let body = req.body.searchSelection
     const filterTrue = () => {
       let filteredList = []
