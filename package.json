@@ -4,9 +4,9 @@
   "description": "CapStoneProject",
   "main": "server.js",
   "scripts": {
-    "test": "jest backendTest.js",
+    "test": "jest",
     "install": "concurrently npm install && npm install --prefix client",
-    "start": "concurrently \"nodemon server.js\" \"npm start --prefix client\" ",
+    "start": "concurrently \"node server.js\" \"npm start --prefix client\" ",
     "heroku-postbuild": "npm install && npm install --prefix client && npm run build --prefix client"
   },
   "repository": {
