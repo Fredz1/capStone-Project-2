@@ -10,10 +10,10 @@
 
 ### How install, test and run this app
 
--clone this respository into you project directory "https://github.com/Fredz1/capStone-Project-2.git"  
+-Clone this respository into you project directory "https://github.com/Fredz1/capStone-Project-2.git"  
 -Once completed cd into project directory  
--input "npm run install" in terminal  
--Once node mondules have installed input "npm start"
+-Input "npm install" then change to client directory  "cd client" and input "npm install"  
+-Once node mondules have installed "cd .." to project directory and input "npm start"
 
 ### Security Measures
 
