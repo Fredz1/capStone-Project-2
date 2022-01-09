@@ -6,7 +6,7 @@
   "scripts": {
     "test": "jest",
     "installserver": "npm install",
-    "install": "concurrently npm installserver && npm install --prefix client",
+    "install": "concurrently npm run installserver && npm run install --prefix client",
     "start": "node server.js",
     "heroku-postbuild": "npm install && npm install --prefix client && npm run build --prefix client"
   },
