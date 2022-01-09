@@ -5,8 +5,7 @@
   "main": "server.js",
   "scripts": {
     "test": "jest",
-    "installserver": "npm install",
-    "install": "concurrently npm run installserver && npm run install --prefix client",
+    "dev": "concurrently \"nodemon server.js\" \"npm start --prefix client\" ",
     "start": "node server.js",
     "heroku-postbuild": "npm install && npm install --prefix client && npm run build --prefix client"
   },
