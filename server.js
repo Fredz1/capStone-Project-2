@@ -10,7 +10,13 @@ server.use(urlencoded({extended: false}))
 dotenv.config()
 
 // Helmet
-server.use(helmet())
+server.use(
+  helmet({
+    'Content-Security-Policy': 'script-src https://istoresearcher.herokuapp.com/'
+  }
+
+  )
+)
 
 server.use(
   '/api',
