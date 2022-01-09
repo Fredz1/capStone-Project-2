@@ -1,11 +1,12 @@
 const router = require('express').Router()
 const iStoreRequest = require('../controller/itunesRequests')
+const { body } = require('express-validator')
 
 
 router.post(
   '/',
+  body('userInput').whitelist( 'abcdefghijklmnnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ', ),
   async (req, res) => {
-
     // filter all false underfined or null entries out of input before request is made.
     let body = req.body.searchSelection
     const filterTrue = () => {
