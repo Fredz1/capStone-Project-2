@@ -10,11 +10,7 @@ server.use(urlencoded({extended: false}))
 dotenv.config()
 
 // Helmet
-server.use(
-  helmet({
-    contentSecurityPolicy: false,
-  })
-);
+server.use(helmet())
 
 server.use(
   '/api',
