@@ -9,6 +9,7 @@
     "start": "concurrently \"nodemon server.js\" \"npm start --prefix client\" ",
     "heroku-postbuild": "npm install && npm install --prefix client && npm run build --prefix client"
   },
+  "proxy": "http://localhost:5000",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/Fredz1/capStone-Project-2.git"
