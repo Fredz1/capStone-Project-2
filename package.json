@@ -4,9 +4,9 @@
   "description": "CapStoneProject",
   "main": "server.js",
   "scripts": {
-    "test": "jest",
+    "test": "mocha --exit || true ",
     "dev": "concurrently \"nodemon server.js\" \"npm start --prefix client\" ",
-    "start": "concurrently \"node server.js\" \"npm start --prefix client\" ",
+    "start": "concurrently \"nodemon server.js\" \"npm start --prefix client\" ",
     "heroku-postbuild": "npm install && npm install --prefix client && npm run build --prefix client"
   },
   "repository": {
@@ -29,8 +29,12 @@
     "node-fetch": "^2.6.6"
   },
   "devDependencies": {
+    "chai": "^4.3.6",
+    "chai-http": "^4.3.0",
+    "mocha": "^9.2.0",
     "morgan": "^1.10.0",
-    "nodemon": "^2.0.15"
+    "nodemon": "^2.0.15",
+    "request": "^2.88.2"
   },
   "engines": {
     "npm": "7.20.6",

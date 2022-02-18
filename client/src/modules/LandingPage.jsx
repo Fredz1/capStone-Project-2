@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react'
 import ItemCard from './ItemCard'
 import searchTypes from './staticContent/staticContent'
 import {addToStorage, getFavorites, removeFromStorage} from '../helperFunctions/sessionStorageController'
+import axios from 'axios'
 
 const LandingPage = () => {
 
@@ -26,22 +27,20 @@ const LandingPage = () => {
   }
 
   const handleSearchClick = async () => {
-    const request = await fetch(
+    const {status, data} = await axios.post(
       '/api',
       {
-        headers: {'Content-Type': 'application/json'},
-        method: 'POST',
-        body: JSON.stringify(
-          {searchSelection,
-          userInput }
-        )
+        searchSelection,
+        userInput 
       }
     )
-    let response = await request.json()
-    setSearchResults(response)
+    console.log(userInput)
+
+    status === 200 ? setSearchResults([...data.results]) : console.log(status)
+
   }
 
-
+  // Useffect to get any existing favorites from browser session storage
   useEffect(
     () => {
       setFavorites(getFavorites())
@@ -85,9 +84,7 @@ const LandingPage = () => {
         </div>      
         <button onClick={() => handleSearchClick()}>Search</button>
       </div>
-      {
-        
-      }
+      
       <div className="mainDisplay">
         <div className="searchResults">
           {/* search results display */}
