@@ -34,8 +34,6 @@ const LandingPage = () => {
         userInput 
       }
     )
-    console.log(userInput)
-
     status === 200 ? setSearchResults([...data.results]) : console.log(status)
 
   }
